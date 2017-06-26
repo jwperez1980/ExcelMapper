@@ -44,7 +44,7 @@ User Name, Department, Department Number, Filename On Disc, Hire Date
 
 Solution:
 
-```C#
+...C#
 string path = "<path>/myExcelWorkbook.xlsx";
 ExcelFileReader<Employee> reader = new ExcelFileReader<Employee>(path);
 List<Employee> list = reader.getProjects();
