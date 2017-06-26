@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="ColumnAttribute.cs" />
     <Compile Include="DataFormatAttribute.cs" />
+    <Compile Include="ExcelFileReader.cs" />
     <Compile Include="ExcelMapper.cs" />
     <Compile Include="IgnoreAttribute.cs" />
     <Compile Include="ITypeMapperFactory.cs" />
