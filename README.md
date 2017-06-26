@@ -35,7 +35,7 @@ replacements.Add("Date: Hired", "HireDate");
 
 ExcelFileReader<Employee> reader = new ExcelFileReader<Employee>(path, replacements);
 list = reader.getProjects();
-...
+```
 
 By default all spaces are removed when using the one parameter constuctor as shown here:
 
@@ -44,11 +44,11 @@ User Name, Department, Department Number, Filename On Disc, Hire Date
 
 Solution:
 
-...C#
+```C#
 string path = "<path>/myExcelWorkbook.xlsx";
 ExcelFileReader<Employee> reader = new ExcelFileReader<Employee>(path);
 List<Employee> list = reader.getProjects();
-...
+```
 
 ## Features
 
