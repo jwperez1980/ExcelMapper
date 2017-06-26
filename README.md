@@ -19,7 +19,7 @@ Assume you have a Class with the following properties:
 The Excel file for reading data has the following in the header row:
     User name in Dept, Department Name, Department #,  File "from disc", Date: Hired
 
-The new ExcelFileReader class can be used as followers to map the names to match the properties:
+The new ExcelFileReader class can be used as follows to map the names to match the properties and return a list of Objects:
 
 string path = "<path>/myExcelWorkbook.xlsx";
 List<Employee> list;
@@ -34,6 +34,16 @@ replacements.Add("Date: Hired", "HireDate");
 
 ExcelFileReader<Employee> reader = new ExcelFileReader<Employee>(path, replacements);
 list = reader.getProjects();
+
+By default all spaces are removed when using the one parameter constuctor as shown here:
+
+Excel File Headers:
+User Name, Department, Department Number, Filename On Disc, Hire Date
+
+Solution:
+string path = "<path>/myExcelWorkbook.xlsx";
+ExcelFileReader<Employee> reader = new ExcelFileReader<Employee>(path);
+List<Employee> list = reader.getProjects();
 
 ## Features
 
