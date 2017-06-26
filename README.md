@@ -21,6 +21,7 @@ The Excel file for reading data has the following in the header row:
 
 The new ExcelFileReader class can be used as follows to map the names to match the properties and return a list of Objects:
 
+```C#
 string path = "<path>/myExcelWorkbook.xlsx";
 List<Employee> list;
 
@@ -34,6 +35,7 @@ replacements.Add("Date: Hired", "HireDate");
 
 ExcelFileReader<Employee> reader = new ExcelFileReader<Employee>(path, replacements);
 list = reader.getProjects();
+...
 
 By default all spaces are removed when using the one parameter constuctor as shown here:
 
@@ -41,9 +43,12 @@ Excel File Headers:
 User Name, Department, Department Number, Filename On Disc, Hire Date
 
 Solution:
+
+```C#
 string path = "<path>/myExcelWorkbook.xlsx";
 ExcelFileReader<Employee> reader = new ExcelFileReader<Employee>(path);
 List<Employee> list = reader.getProjects();
+...
 
 ## Features
 
@@ -66,7 +71,7 @@ This expects the Excel file to contain a header row with the column names. Objec
 
 ## Map to specific column names
 
-```C#
+
 public class Product
 {
   public string Name { get; set; }
