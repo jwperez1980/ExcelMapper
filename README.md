@@ -6,6 +6,35 @@
 
 A library to map [POCO](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object) objects to Excel files.
 
+## New Feature
+NOTE:  This feature is on in this branch, it is not in the NuGet package
+
+* Map Excel file names to C# compatible names
+
+Excel files often have spaces or illegal characters.  The new class allows renaming of these columns.
+
+Assume you have a Class with the following properties:
+    UserName, Department, DepartmentNumber, FileNameOnDisc, HireDate,
+
+The Excel file for reading data has the following in the header row:
+    User name in Dept, Department Name, Department #,  File "from disc", Date: Hired
+
+The new ExcelFileReader class can be used as followers to map the names to match the properties:
+
+string path = "<path>/myExcelWorkbook.xlsx";
+List<Employee> list;
+
+Dictionary<string, string> replacements = new Dictionary<string, string>();
+
+replacements.Add("User name in Dept", "UserName");
+replacements.Add("Department Name", "Department");
+replacements.Add("Department #", "DepartmentNumber");
+replacements.Add("File \"from disc\"", "FileNameOnDisc");
+replacements.Add("Date: Hired", "HireDate");
+
+ExcelFileReader<Employee> reader = new ExcelFileReader<Employee>(path, replacements);
+list = reader.getProjects();
+
 ## Features
 
 * Read and write Excel files
